@@ -37,38 +37,27 @@ import "./index.css";
 //   return <p>Aqui vai minha mensagem</p>;
 // };
 
-const firstBook = {
-  title: "The Hobbit",
-  img: "https://m.media-amazon.com/images/I/91M9xPIf10L._AC_UL480_FMwebp_QL65_.jpg",
-  author: "J.R.R Tolkien",
-};
+const books = [
+  {
+    title: "The Hobbit",
+    img: "https://m.media-amazon.com/images/I/91M9xPIf10L._AC_UL480_FMwebp_QL65_.jpg",
+    author: "J.R.R Tolkien",
+  },
 
-const secondBook = {
-  title: "Java",
-  img: "https://m.media-amazon.com/images/I/91gRSdr8B2L._AC_UL480_FMwebp_QL65_.jpg",
-  author: "Marc Loy",
-};
+  {
+    title: "Java",
+    img: "https://m.media-amazon.com/images/I/91gRSdr8B2L._AC_UL480_FMwebp_QL65_.jpg",
+    author: "Marc Loy",
+  },
+];
 
+const names = ["Jonh", "Peter", "Susan"];
+const newNames = names.map((name) => {
+  return <h>{name}</h>;
+});
+console.log(newNames);
 function BookList() {
-  return (
-    <section className="booklist">
-      <Book
-        img={firstBook.img}
-        title={firstBook.title}
-        author={firstBook.author}
-      >
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-          voluptas fuga deserunt iure animi in molestias ex tempore quasi quis.
-        </p>
-      </Book>
-      <Book
-        img={secondBook.img}
-        title={secondBook.title}
-        author={secondBook.author}
-      />
-    </section>
-  );
+  return <section className="booklist">{newNames}</section>;
 }
 
 const Book = (props) => {
@@ -80,7 +69,6 @@ const Book = (props) => {
       <h1>{title}</h1>
       <h4>{author}</h4>
       <p>{"Test String"}</p>
-      {props.children}
     </article>
   );
 };
