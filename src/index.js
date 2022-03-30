@@ -49,23 +49,36 @@ const books = [
     img: "https://m.media-amazon.com/images/I/91gRSdr8B2L._AC_UL480_FMwebp_QL65_.jpg",
     author: "Marc Loy",
   },
+
+  {
+    title: "Uma breve história do tempo",
+    img: "https://m.media-amazon.com/images/I/51lD6mcXV7L._AC_UL480_FMwebp_QL65_.jpg",
+    author: "Stephen Hawking",
+  },
+
+  {
+    title: "Clean Code",
+    img: "https://m.media-amazon.com/images/I/71dH97FwGbL._AC_UL320_.jpg",
+    author: "Robert C. Martin",
+  },
 ];
 
-const names = ["Jonh", "Peter", "Susan"];
-const newNames = names.map((name) => {
-  return <h>{name}</h>;
-});
-console.log(newNames);
 function BookList() {
-  return <section className="booklist">{newNames}</section>;
+  return (
+    <section className="booklist">
+      {books.map((books) => {
+        return <Book book={books}></Book>;
+      })}
+    </section>
+  );
 }
 
 const Book = (props) => {
-  const { img, title, author } = props;
+  console.log(props);
+  const { img, title, author } = props.book;
   return (
     <article className="book">
       <img src={img} alt="" />
-      <Author></Author>
       <h1>{title}</h1>
       <h4>{author}</h4>
       <p>{"Test String"}</p>
