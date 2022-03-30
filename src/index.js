@@ -1,5 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { books } from "./books";
+import SpecificBook from "./Book";
+import { greeting } from "./testing/testing";
 
 // CSS
 import "./index.css";
@@ -37,85 +40,17 @@ import "./index.css";
 //   return <p>Aqui vai minha mensagem</p>;
 // };
 
-const books = [
-  {
-    id: 1,
-    title: "The Hobbit",
-    img: "https://m.media-amazon.com/images/I/91M9xPIf10L._AC_UL480_FMwebp_QL65_.jpg",
-    author: "J.R.R Tolkien",
-  },
-
-  {
-    id: 2,
-    title: "Java",
-    img: "https://m.media-amazon.com/images/I/91gRSdr8B2L._AC_UL480_FMwebp_QL65_.jpg",
-    author: "Marc Loy",
-  },
-
-  {
-    id: 3,
-    title: "Uma breve história do tempo",
-    img: "https://m.media-amazon.com/images/I/51lD6mcXV7L._AC_UL480_FMwebp_QL65_.jpg",
-    author: "Stephen Hawking",
-  },
-
-  {
-    id: 4,
-    title: "Clean Code",
-    img: "https://m.media-amazon.com/images/I/71dH97FwGbL._AC_UL320_.jpg",
-    author: "Robert C. Martin",
-  },
-];
-
 function BookList() {
+  console.log(greeting);
   return (
     <section className="booklist">
       {books.map((books) => {
-        return <Book key={books.id} {...books}></Book>;
+        return <SpecificBook key={books.id} {...books}></SpecificBook>;
       })}
     </section>
   );
 }
 
-const Book = ({ img, title, author }) => {
-  // const { img, title, author } = props;
-
-  // Event - attribute, eventHandler
-  // onClick, onMouseOver
-
-  const clickHandler = (e) => {
-    console.log(e);
-    console.log(e.target);
-    alert("Hello world");
-  };
-
-  const complexExample = (author) => {
-    console.log(author);
-  };
-
-  return (
-    <article
-      className="book"
-      onMouseOver={() => {
-        console.log(title);
-      }}
-    >
-      <img src={img} alt="" />
-      <h1 onClick={() => console.log(title)}>{title}</h1>
-      <h4>{author}</h4>
-      <button type="button" onClick={clickHandler}>
-        Reference example
-      </button>
-      <br />
-      <button type="button" onClick={() => complexExample(author)}>
-        More complex example{" "}
-      </button>
-      <p>{"Test String"}</p>
-    </article>
-  );
-};
-
-// I can add de components like i did above or i can return directly in the function
 const Author = () => (
   <h3 style={{ color: "#007d98", fontSize: "0.75rem", marginTop: "0.25rem" }}>
     J.R.R. Tolkien
