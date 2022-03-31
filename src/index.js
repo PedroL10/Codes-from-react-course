@@ -42,6 +42,7 @@ import "./index.css";
 
 function BookList() {
   console.log(greeting);
+  console.log("msg teste");
   return (
     <section className="booklist">
       {books.map((books) => {
